@@ -28,8 +28,11 @@
                     <h1 class="titulo-prd">Me perdoa Lu</h1>
                     <img class="imagem-gato" src="https://pbs.twimg.com/media/FyY3M72XoAA_o7w.png" alt="Imagem">
                     <input onclick="aceitar()" type="button" value="Aceito as desculpas" class="accept">
-                    <input type="button" value="Não aceito as desculpas" class="not-accept">
+                    <input onclick="teletransportarBotao()"type="button" value="Não aceito as desculpas" class="not-accept">
                     <script>
+                        let cont = 0;
+                        const notAcceptButton = document.querySelector('.not-accept');
+                        const acceptButton = document.querySelector('.accept')
 
                         function aceitar(){
                         const box1 = document.getElementById('box1');
@@ -46,9 +49,10 @@
                             console.log('Música carregada!');
                         });
 
-                        const notAcceptButton = document.querySelector('.not-accept');
-                        const acceptButton = document.querySelector('.accept')
-                        let cont = 0;
+                        
+
+                        
+
                         function teletransportarBotao() {
                         cont++;
                         console.log(cont)
@@ -59,7 +63,7 @@
                         notAcceptButton.style.position = 'absolute';
                         notAcceptButton.style.top = `${y}px`;
                         notAcceptButton.style.left = `${x}px`;
-                        notAcceptButton.style.right= `${y+x}px`;
+                        
                         if (cont === 3){
                             notAcceptButton.style.display = 'none';
                             
@@ -69,7 +73,7 @@
                         
                         }
                         
-                        notAcceptButton.addEventListener('click', teletransportarBotao);
+                        
                     </script>
             </div>
             <div class="box2" id="box2">
