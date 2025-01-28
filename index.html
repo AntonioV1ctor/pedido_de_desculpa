@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
+    <!-- ---------- -->
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/db29c2ca45.js" crossorigin="anonymous"></script>
+    <!-- ---------- -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Me perdoa Lu</title>
+</head>
+<body>
+    <nav>
+    
+
+    </nav>
+    <main>
+        <div class="container"> 
+            <div class="box1" id="box1">
+                    <h1 class="titulo-prd">Me perdoa Lu</h1>
+                    <img class="imagem-gato" src="https://pbs.twimg.com/media/FyY3M72XoAA_o7w.png" alt="Imagem">
+                    <input onclick="aceitar()" type="button" value="Aceito as desculpas" class="accept">
+                    <input type="button" value="Não aceito as desculpas" class="not-accept">
+                    <script>
+
+                        function aceitar(){
+                        const box1 = document.getElementById('box1');
+                        box1.style.display = 'none';
+                        const box2 = document.getElementById('box2')
+                        box2.style.display = 'block';
+                        
+                        // Iniciar a reprodução da música
+                        const audio = document.querySelector('audio');
+                        audio.play();
+                        }
+                        const audio = document.getElementById('audio-copa');
+                        audio.addEventListener('canplay', function() {
+                            console.log('Música carregada!');
+                        });
+
+                        const notAcceptButton = document.querySelector('.not-accept');
+                        const acceptButton = document.querySelector('.accept')
+                        let cont = 0;
+                        function teletransportarBotao() {
+                        cont++;
+                        console.log(cont)
+                        const container = document.querySelector('.container');
+                        const containerRect = container.getBoundingClientRect();
+                        const x = Math.floor(Math.random() * (containerRect.width - notAcceptButton.offsetWidth));
+                        const y = Math.floor(Math.random() * (containerRect.height - notAcceptButton.offsetHeight));
+                        notAcceptButton.style.position = 'absolute';
+                        notAcceptButton.style.top = `${y}px`;
+                        notAcceptButton.style.left = `${x}px`;
+                        notAcceptButton.style.right= `${y+x}px`;
+                        if (cont === 3){
+                            notAcceptButton.style.display = 'none';
+                            
+                            acceptButton.style.right = `0px`;
+                            acceptButton.style.width = `100%`
+                        }
+                        
+                        }
+                        
+                        notAcceptButton.addEventListener('click', teletransportarBotao);
+                    </script>
+            </div>
+            <div class="box2" id="box2">
+                <audio>
+                    <source src="assets/copa.mp3" type="audio/mpeg">
+                    Your browser does not support the audio tag.
+                  </audio>
+                <img class="imagem-gato" src="https://i.pinimg.com/736x/08/e4/d8/08e4d8f56b9704e4eecfbf1f745e67a9.jpg" alt="Imagem">
+                <i id="heart-icon" class="fa-solid fa-heart"></i>
+            </div>
+        </div>
+
+
+    </main>
+    <footer>
+        <div>
+
+        </div>
+    </footer>
+</body>
+</html>
